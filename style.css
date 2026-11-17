@@ -1287,3 +1287,95 @@ footer .soc a:hover {
     transition: none;
   }
 }
+
+/* PIX — aba O Projeto */
+.pix-card {
+  width: min(100%, 340px);
+  margin-inline: auto;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  padding: 1.4rem 1.4rem 1.6rem;
+  background: var(--surf);
+  box-shadow: 0 30px 60px -30px rgba(36, 0, 68, 0.35);
+  text-align: center;
+}
+
+
+.pix-title {
+  margin-bottom: 1rem;
+  color: var(--pr);
+  font: 800 0.95rem var(--s);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.pix-qr {
+  display: block;
+  width: min(100%, 180px);
+  height: auto;
+  margin: 0 auto 0.8rem;
+  border-radius: 14%;
+}
+
+.pix-name {
+  margin: 0 auto 0.3rem;
+  color: var(--dk);
+  font: 800 0.72rem/1.35 var(--s);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.pix-help {
+  margin: 0 auto 0.7rem;
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.pix-code {
+  overflow: hidden;
+  margin-bottom: 0.8rem;
+  border: 2px dashed var(--line);
+  border-radius: 12px;
+  padding: 0.55rem 0.8rem;
+  background: var(--inp);
+  color: var(--ink);
+  font: 500 0.72rem/1.4 monospace;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pix-card .submit-button {
+  margin-top: 0;
+  padding: 0.85rem 1.2rem;
+}
+
+/* Logo no espaço vazio da coluna esquerda */
+.side-logo {
+  margin-top: 2.2rem;
+}
+
+.side-logo .lg {
+  width: min(100%, 280px);
+  height: auto;
+}
+
+.pix-status {
+  min-height: 1.4em;
+  margin: 0.6rem auto 0;
+  color: var(--pr);
+  font-weight: 600;
+}
+
+/* Evita que o código PIX estique a coluna e corte o cartão */
+.project-grid > * {
+  min-width: 0;
+}
+
+.pix-card {
+  max-width: 100%;
+}
+
+.pix-code {
+  max-width: 100%;
+}

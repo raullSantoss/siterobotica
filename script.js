@@ -3,6 +3,7 @@ const LW = "assets/logo-dark.png";
 const root = document.documentElement;
 const themeToggle = document.getElementById("tg");
 const topLogo = document.getElementById("lg-top");
+const sideLogo = document.getElementById("lg-side");
 
 document.querySelectorAll("[data-w]").forEach((image) => {
   image.src = LW;
@@ -11,6 +12,7 @@ document.querySelectorAll("[data-w]").forEach((image) => {
 function setTheme(theme, save = false) {
   root.dataset.theme = theme;
   topLogo.src = theme === "dark" ? LW : LK;
+  sideLogo.src = theme === "dark" ? LW : LK;
   themeToggle.setAttribute("aria-pressed", theme === "dark");
 
   if (save) {
@@ -177,56 +179,37 @@ if (carouselTrack && carouselWindow) {
 
 
 /* Formulário de apadrinhamento */
-const form = document.getElementById("form");
-const donationHint = document.getElementById("hint");
-const nameInput = document.getElementById("nome");
-const phoneInput = document.getElementById("tel");
-const emailInput = document.getElementById("mail");
-const errorMessage = document.getElementById("err");
-const formBody = document.getElementById("fbody");
-const successMessage = document.getElementById("ok");
+/* PIX copia e cola */
+/* PIX copia e cola */
+const pixCopy = document.getElementById("pix-copy");
+const pixCode = document.getElementById("pix-code");
+const pixStatus = document.getElementById("pix-status");
 
-form.addEventListener("change", () => {
-  donationHint.classList.toggle("on", form.tipo.value !== "Dinheiro (PIX)");
-});
+pixCopy.addEventListener("click", async () => {
+  const code = pixCode.textContent.trim();
 
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
+  try {
+    await navigator.clipboard.writeText(code);
+    pixStatus.textContent = "Código PIX copiado!";
+  } catch (error) {
+    // Plano B para quando o site é aberto fora de https/localhost
+    const range = document.createRange();
+    range.selectNodeContents(pixCode);
+    const selection = getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
 
-  const name = nameInput.value.trim();
-  const phone = phoneInput.value.trim();
-  const email = emailInput.value.trim();
+    let copied = false;
+    try {
+      copied = document.execCommand("copy");
+    } catch (e) {}
 
-  if (
-    !name ||
-    phone.replace(/\D/g, "").length < 10 ||
-    !/^\S+@\S+\.\S+$/.test(email)
-  ) {
-    errorMessage.textContent =
-      "Preencha nome completo, telefone com DDD e um e-mail válido.";
-    return;
+    pixStatus.textContent = copied
+      ? "Código PIX copiado!"
+      : "Selecione e copie o código acima.";
   }
 
-  errorMessage.textContent = "";
-
-  const donationType = form.tipo.value;
-  document.getElementById("who").textContent = name.split(" ")[0];
-  document.getElementById("okmsg").textContent =
-    donationType === "Dinheiro (PIX)"
-      ? "Recebemos seu interesse em apadrinhar com PIX. A Casa do HIP-HOP entrará em contato pelos dados informados."
-      : `Recebemos seu interesse em doar ${
-          donationType === "Ração" ? "ração" : "uma cesta básica"
-        }. Lembre-se de entregar pessoalmente na Rua Jaçanã Altair Pereira Guerrine, 200, Paulicéia.`;
-
-  formBody.style.display = "none";
-  successMessage.classList.add("on");
-});
-
-document.getElementById("again").addEventListener("click", () => {
-  form.reset();
-  donationHint.classList.remove("on");
-  formBody.style.display = "";
-  successMessage.classList.remove("on");
+  setTimeout(() => (pixStatus.textContent = ""), 3000);
 });
 
 /* =========================================

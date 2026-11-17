@@ -372,7 +372,7 @@
                 As doações são distribuídas conforme as necessidades da Casa do
                 HIP-HOP. Não é possível escolher um indivíduo específico.
               </p>
-              <div class="warn" role="note">
+                            <div class="warn" role="note">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M12 3 2 21h20L12 3zM12 10v5M12 18v.5"/>
                 </svg>
@@ -383,84 +383,27 @@
                   <p style="margin: 0">Em caso de dúvidas, entre em contato com a Casa do HIP-HOP.</p>
                 </div>
               </div>
+
+              <div class="side-logo">
+                <img class="lg" id="lg-side" src="assets/logo-light.png" alt="Discovery New Ways" width="260" height="68">
+              </div>
             </div>
 
-            <form id="form" novalidate>
-              <div id="fbody">
-                <fieldset>
-                  <legend>Como você quer ajudar?</legend>
-                  <div class="opts">
-                    <label>
-                      <input type="radio" name="tipo" value="Dinheiro (PIX)" checked>
-                      <span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                          <rect x="2" y="6" width="20" height="12" rx="3"/>
-                          <circle cx="12" cy="12" r="2.5"/>
-                        </svg>
-                        Dinheiro (PIX)
-                      </span>
-                    </label>
-                    <label>
-                      <input type="radio" name="tipo" value="Cesta básica">
-                      <span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                          <path d="M3 9h18l-2 11H5L3 9zM8 9l4-6 4 6"/>
-                        </svg>
-                        Cesta básica
-                      </span>
-                    </label>
-                    <label>
-                      <input type="radio" name="tipo" value="Ração">
-                      <span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                          <circle cx="6" cy="10" r="1.6"/>
-                          <circle cx="10" cy="6" r="1.6"/>
-                          <circle cx="14" cy="6" r="1.6"/>
-                          <circle cx="18" cy="10" r="1.6"/>
-                          <path d="M8 18c0-3 2-5 4-5s4 2 4 5c0 2-2 2-4 1-2 1-4 1-4-1z"/>
-                        </svg>
-                        Ração
-                      </span>
-                    </label>
-                  </div>
-                </fieldset>
-
-                <p class="hint" id="hint">
-                  Lembre-se: cestas e ração são entregues por você na Rua Jaçanã
-                  Altair Pereira Guerrine, 200, Paulicéia.
-                </p>
-
-                <div class="f">
-                  <div class="fld full">
-                    <label for="nome">Nome completo</label>
-                    <input id="nome" required autocomplete="name">
-                  </div>
-                  <div class="fld">
-                    <label for="tel">Telefone</label>
-                    <input id="tel" type="tel" required autocomplete="tel" placeholder="(19) 90000-0000">
-                  </div>
-                  <div class="fld">
-                    <label for="mail">E-mail</label>
-                    <input id="mail" type="email" required autocomplete="email">
-                  </div>
-                </div>
-
-                <p id="err" role="alert" class="error-message"></p>
-                <button class="cta submit-button" type="submit">Quero apadrinhar</button>
-              </div>
-
-              <div class="ok" id="ok" role="status">
-                <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10"/>
-                  <path d="m8 12 3 3 5-6"/>
-                </svg>
-                <h3>Obrigado, <span id="who"></span>!</h3>
-                <p id="okmsg"></p>
-                <button class="cta ghost" type="button" id="again">
-                  Fazer outro apadrinhamento
-                </button>
-              </div>
-            </form>
+            <div class="pix-card" id="pix">
+              <div class="pix-title">Doe via PIX</div>
+              <img
+                class="pix-qr"
+                src="./img/qrcode.jpg"
+                alt="QR code PIX da Casa do Hip-Hop"
+                width="300"
+                height="300"
+              >
+              <p class="pix-name">Associação Comunitária, Cultural, Educacional e Política · Casa do Hip-Hop</p>
+              <p class="pix-help">Escaneie o QR code no app do seu banco ou use o PIX copia e cola:</p>
+              <div class="pix-code" id="pix-code" title="PIX copia e cola">00020126580014br.gov.bcb.pix0136d960dbf3-cd3f-40c1-81fb-a0811b302b4d27600016BR.COM.PAGSEGURO0136D7F4CAB3-88F8-4F96-B7E6-2D7CC92653525204869953039865802BR5925ASSOCIACAO COMUNITARIA, C6010Piracicaba62290525PAGS0000000002611061752896304B833</div>
+              <button class="cta submit-button" type="button" id="pix-copy">Copiar código PIX</button>
+              <p class="pix-status" id="pix-status" role="status"></p>
+            </div>
           </div>
         </section>
 
