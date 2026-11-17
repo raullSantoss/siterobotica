@@ -1287,3 +1287,54 @@ footer .soc a:hover {
     transition: none;
   }
 }
+/* Doações via PIX */
+.pix-card {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 32px;
+  padding: clamp(1.5rem, 4vw, 2.8rem);
+  background: var(--surf);
+  box-shadow: 0 30px 60px -30px rgba(36, 0, 68, 0.35);
+  text-align: center;
+}
+.pix-card h3 {
+  margin: 0.6rem 0 1rem;
+  color: var(--dk);
+  font: 800 clamp(1.8rem, 3vw, 2.5rem) var(--s);
+}
+.pix-qr {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  width: min(100%, 380px);
+  aspect-ratio: 1;
+  margin: 1.8rem auto;
+  border-radius: 16px;
+  background: #fff;
+}
+.pix-qr img {
+  position: absolute;
+  width: 153.56%;
+  max-width: none;
+  height: auto;
+  left: -27.12%;
+  top: -128.81%;
+}
+.pix-qr:focus-visible { outline: 3px solid var(--pr); outline-offset: 4px; }
+.pix-recipient { font-size: 0.85rem; }
+.pix-code-label { display: block; margin: 1.2rem 0 0.5rem; font-weight: 700; }
+.pix-code {
+  display: block;
+  width: 100%;
+  resize: vertical;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 0.8rem;
+  background: var(--inp);
+  color: var(--ink);
+  font: 0.8rem monospace;
+  overflow-wrap: anywhere;
+}
+.pix-copy { width: 100%; margin-top: 1rem; }
+.pix-copy-status { min-height: 1.5em; font-size: 0.85rem; }
+.pix-caption { margin-bottom: 0; font-size: 0.9rem; }

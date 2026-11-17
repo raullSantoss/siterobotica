@@ -176,59 +176,6 @@ if (carouselTrack && carouselWindow) {
 }
 
 
-/* Formulário de apadrinhamento */
-const form = document.getElementById("form");
-const donationHint = document.getElementById("hint");
-const nameInput = document.getElementById("nome");
-const phoneInput = document.getElementById("tel");
-const emailInput = document.getElementById("mail");
-const errorMessage = document.getElementById("err");
-const formBody = document.getElementById("fbody");
-const successMessage = document.getElementById("ok");
-
-form.addEventListener("change", () => {
-  donationHint.classList.toggle("on", form.tipo.value !== "Dinheiro (PIX)");
-});
-
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
-
-  const name = nameInput.value.trim();
-  const phone = phoneInput.value.trim();
-  const email = emailInput.value.trim();
-
-  if (
-    !name ||
-    phone.replace(/\D/g, "").length < 10 ||
-    !/^\S+@\S+\.\S+$/.test(email)
-  ) {
-    errorMessage.textContent =
-      "Preencha nome completo, telefone com DDD e um e-mail válido.";
-    return;
-  }
-
-  errorMessage.textContent = "";
-
-  const donationType = form.tipo.value;
-  document.getElementById("who").textContent = name.split(" ")[0];
-  document.getElementById("okmsg").textContent =
-    donationType === "Dinheiro (PIX)"
-      ? "Recebemos seu interesse em apadrinhar com PIX. A Casa do HIP-HOP entrará em contato pelos dados informados."
-      : `Recebemos seu interesse em doar ${
-          donationType === "Ração" ? "ração" : "uma cesta básica"
-        }. Lembre-se de entregar pessoalmente na Rua Jaçanã Altair Pereira Guerrine, 200, Paulicéia.`;
-
-  formBody.style.display = "none";
-  successMessage.classList.add("on");
-});
-
-document.getElementById("again").addEventListener("click", () => {
-  form.reset();
-  donationHint.classList.remove("on");
-  formBody.style.display = "";
-  successMessage.classList.remove("on");
-});
-
 /* =========================================
    VISUALIZADOR DE FOTOS — TELA CHEIA
    ========================================= */
@@ -280,5 +227,19 @@ lightbox.addEventListener("click", (event) => {
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && lightbox.classList.contains("active")) {
     closeLightbox();
+  }
+});
+/* PIX copia e cola */
+const pixCopyButton = document.getElementById("copy-pix");
+pixCopyButton.addEventListener("click", async () => {
+  const code = document.getElementById("pix-code");
+  const status = document.getElementById("pix-copy-status");
+  try {
+    await navigator.clipboard.writeText(code.value);
+    status.textContent = "Código PIX copiado! Cole no aplicativo do seu banco.";
+  } catch {
+    code.focus();
+    code.select();
+    status.textContent = "Selecione e copie o código acima para colar no aplicativo do seu banco.";
   }
 });
