@@ -133,10 +133,25 @@
 <form id="form" novalidate>
 <div id="fbody">
 <fieldset><legend>Como você quer ajudar?</legend><div class="opts">
-<label><input type="radio" name="tipo" value="Dinheiro (PIX)" checked><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="3"/><circle cx="12" cy="12" r="2.5"/></svg>Dinheiro (PIX)</span></label>
+<label><input id="pix-option" type="radio" name="tipo" value="Dinheiro (PIX)" checked><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="3"/><circle cx="12" cy="12" r="2.5"/></svg>Dinheiro (PIX)</span></label>
 <label><input type="radio" name="tipo" value="Cesta básica"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h18l-2 11H5L3 9zM8 9l4-6 4 6"/></svg>Cesta básica</span></label>
 <label><input type="radio" name="tipo" value="Ração"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="10" r="1.6"/><circle cx="10" cy="6" r="1.6"/><circle cx="14" cy="6" r="1.6"/><circle cx="18" cy="10" r="1.6"/><path d="M8 18c0-3 2-5 4-5s4 2 4 5c0 2-2 2-4 1-2 1-4 1-4-1z"/></svg>Ração</span></label>
-</div></fieldset>
+</div>
+<a
+  class="pix-qr"
+  href="assets/pix-casa-do-hip-hop.png"
+  target="_blank"
+  rel="noopener"
+  aria-label="Abrir imagem completa do QR code Pix da Casa do Hip-Hop"
+>
+  <img
+    src="assets/pix-casa-do-hip-hop.png"
+    alt="QR code Pix para doar à Casa do Hip-Hop"
+    width="906"
+    height="1601"
+  >
+</a>
+</fieldset>
 <p class="hint" id="hint">Lembre-se: cestas e ração são entregues por você na Rua Jaçanã Altair Pereira Guerrine, 200, Paulicéia.</p>
 <div class="f">
 <div class="fld full"><label for="nome">Nome completo</label><input id="nome" required autocomplete="name"></div>

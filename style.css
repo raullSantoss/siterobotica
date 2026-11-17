@@ -104,6 +104,36 @@ legend{font:800 .95rem var(--s);text-transform:uppercase;letter-spacing:.06em;co
 .opts label:hover span{border-color:var(--pr)}
 .opts input:checked+span{background:var(--btn);border-color:var(--btn);color:#fff;transform:translateY(-3px);box-shadow:0 12px 24px -12px var(--btn)}
 .opts input:focus-visible+span{outline:3px solid var(--bl);outline-offset:3px}
+
+.pix-qr {
+  display: none;
+  position: relative;
+  overflow: hidden;
+  width: min(100%, 380px);
+  aspect-ratio: 1;
+  margin: 1.25rem auto 0;
+  border-radius: 16px;
+  background: #fff;
+}
+
+fieldset:has(#pix-option:checked) > .pix-qr {
+  display: block;
+}
+
+.pix-qr img {
+  position: absolute;
+  width: 153.56%;
+  max-width: none;
+  height: auto;
+  left: -27.12%;
+  top: -128.81%;
+}
+
+.pix-qr:focus-visible {
+  outline: 3px solid var(--pr);
+  outline-offset: 4px;
+}
+
 .f{display:grid;grid-template-columns:1fr 1fr;gap:1rem}.f .full{grid-column:1/-1}
 .fld label{display:block;font:800 .8rem var(--s);text-transform:uppercase;letter-spacing:.05em;color:var(--dk);margin-bottom:.35rem}
 .fld input{width:100%;font:inherit;padding:.9rem 1.1rem;border-radius:16px;border:2px solid var(--line);background:var(--inp);color:var(--ink)}
