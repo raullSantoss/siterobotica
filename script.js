@@ -54,13 +54,25 @@ function createSocialLink(icon, label, href) {
 const houseSocial = createSocialLink(
   "instagram",
   "Instagram da Casa do Hip-Hop",
-  "#",
+  "https://www.instagram.com/casahiphoppiracicaba/",
 );
 
 const teamSocial =
-  createSocialLink("instagram", "Instagram da Discovery", "#") +
-  createSocialLink("tiktok", "TikTok da Discovery", "#") +
-  createSocialLink("youtube", "YouTube da Discovery", "#");
+  createSocialLink(
+    "instagram",
+    "Instagram da Discovery",
+    "https://www.instagram.com/discovery_nw/",
+  ) +
+  createSocialLink(
+    "tiktok",
+    "TikTok da Discovery",
+    "https://www.tiktok.com/@discovery_nw",
+  ) +
+  createSocialLink(
+    "youtube",
+    "YouTube da Discovery",
+    "https://www.youtube.com/@DiscoveryNewWays",
+  );
 
 document.getElementById("soc-top").innerHTML = houseSocial + teamSocial;
 document.getElementById("soc-ch").innerHTML = houseSocial;
