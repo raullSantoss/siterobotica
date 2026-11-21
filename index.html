@@ -366,28 +366,44 @@
               <p>
                 É um <b>movimento solidário</b> para garantir
                 <b>alimentação e apoio</b>. Você pode apadrinhar doando
-                <b>via PIX</b>.
+                <b>cestas básicas, dinheiro ou ração</b>.
               </p>
               <p>
                 As doações são distribuídas conforme as necessidades da Casa do
                 HIP-HOP. Não é possível escolher um indivíduo específico.
               </p>
+                            <div class="warn" role="note">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 3 2 21h20L12 3zM12 10v5M12 18v.5"/>
+                </svg>
+                <div>
+                  <h4>Atenção na entrega</h4>
+                  <p>Cestas básicas e ração devem ser entregues <b>pelo próprio padrinho</b> em:</p>
+                  <p><b>Rua Jaçanã Altair Pereira Guerrine, nº 200<br>Bairro Paulicéia · Piracicaba - SP</b></p>
+                  <p style="margin: 0">Em caso de dúvidas, entre em contato com a Casa do HIP-HOP.</p>
+                </div>
+              </div>
+
+              <div class="side-logo">
+                <img class="lg" id="lg-side" src="assets/logo-light.png" alt="Discovery New Ways" width="260" height="68">
+              </div>
             </div>
 
-            <aside class="pix-card" aria-labelledby="pix-title">
-              <div class="sub">Faça parte dessa mudança</div>
-              <h3 id="pix-title">Doe via PIX</h3>
-              <p>Abra o aplicativo do seu banco e escaneie o QR code para contribuir.</p>
-              <a class="pix-qr" href="assets/pix-casa-do-hip-hop.png" target="_blank" rel="noopener" aria-label="Abrir imagem completa do QR code PIX da Casa do HIP-HOP">
-                <img src="assets/pix-casa-do-hip-hop.png" alt="QR code PIX para doar à Casa do HIP-HOP" width="906" height="1601">
-              </a>
-              <p class="pix-recipient">Favorecido: Associação Comunitária, Cultural, Educacional e Política — Casa do Hip Hop</p>
-              <label class="pix-code-label" for="pix-code">PIX copia e cola</label>
-              <textarea id="pix-code" class="pix-code" readonly rows="3" spellcheck="false">00020126580014br.gov.bcb.pix0136d960dbf3-cd3f-40c1-81fb-a0811b302b4d27600016BR.COM.PAGSEGURO0136D7F4CAB3-88F8-4F96-B7E6-2D7CC92653525204869953039865802BR5925ASSOCIACAO COMUNITARIA, C6010Piracicaba62290525PAGS0000000002611061752896304B833</textarea>
-              <button class="cta pix-copy" id="copy-pix" type="button">Copiar código PIX</button>
-              <p id="pix-copy-status" class="pix-copy-status" role="status" aria-live="polite"></p>
-              <p class="pix-caption">Sua contribuição ajuda a garantir alimentação e apoio na Casa do HIP-HOP.</p>
-            </aside>
+            <div class="pix-card" id="pix">
+              <div class="pix-title">Doe via PIX</div>
+              <img
+                class="pix-qr"
+                src="./img/qrcode.jpg"
+                alt="QR code PIX da Casa do Hip-Hop"
+                width="300"
+                height="300"
+              >
+              <p class="pix-name">Associação Comunitária, Cultural, Educacional e Política · Casa do Hip-Hop</p>
+              <p class="pix-help">Escaneie o QR code no app do seu banco ou use o PIX copia e cola:</p>
+              <div class="pix-code" id="pix-code" title="PIX copia e cola">00020126580014br.gov.bcb.pix0136d960dbf3-cd3f-40c1-81fb-a0811b302b4d27600016BR.COM.PAGSEGURO0136D7F4CAB3-88F8-4F96-B7E6-2D7CC92653525204869953039865802BR5925ASSOCIACAO COMUNITARIA, C6010Piracicaba62290525PAGS0000000002611061752896304B833</div>
+              <button class="cta submit-button" type="button" id="pix-copy">Copiar código PIX</button>
+              <p class="pix-status" id="pix-status" role="status"></p>
+            </div>
           </div>
         </section>
 

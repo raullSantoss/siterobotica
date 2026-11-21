@@ -1287,54 +1287,95 @@ footer .soc a:hover {
     transition: none;
   }
 }
-/* Doações via PIX */
+
+/* PIX — aba O Projeto */
 .pix-card {
-  min-width: 0;
+  width: min(100%, 340px);
+  margin-inline: auto;
   border: 1px solid var(--line);
-  border-radius: 32px;
-  padding: clamp(1.5rem, 4vw, 2.8rem);
+  border-radius: 28px;
+  padding: 1.4rem 1.4rem 1.6rem;
   background: var(--surf);
   box-shadow: 0 30px 60px -30px rgba(36, 0, 68, 0.35);
   text-align: center;
 }
-.pix-card h3 {
-  margin: 0.6rem 0 1rem;
-  color: var(--dk);
-  font: 800 clamp(1.8rem, 3vw, 2.5rem) var(--s);
+
+
+.pix-title {
+  margin-bottom: 1rem;
+  color: var(--pr);
+  font: 800 0.95rem var(--s);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
+
 .pix-qr {
   display: block;
-  position: relative;
-  overflow: hidden;
-  width: min(100%, 380px);
-  aspect-ratio: 1;
-  margin: 1.8rem auto;
-  border-radius: 16px;
-  background: #fff;
-}
-.pix-qr img {
-  position: absolute;
-  width: 153.56%;
-  max-width: none;
+  width: min(100%, 180px);
   height: auto;
-  left: -27.12%;
-  top: -128.81%;
+  margin: 0 auto 0.8rem;
+  border-radius: 14%;
 }
-.pix-qr:focus-visible { outline: 3px solid var(--pr); outline-offset: 4px; }
-.pix-recipient { font-size: 0.85rem; }
-.pix-code-label { display: block; margin: 1.2rem 0 0.5rem; font-weight: 700; }
+
+.pix-name {
+  margin: 0 auto 0.3rem;
+  color: var(--dk);
+  font: 800 0.72rem/1.35 var(--s);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.pix-help {
+  margin: 0 auto 0.7rem;
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
 .pix-code {
-  display: block;
-  width: 100%;
-  resize: vertical;
-  border: 1px solid var(--line);
+  overflow: hidden;
+  margin-bottom: 0.8rem;
+  border: 2px dashed var(--line);
   border-radius: 12px;
-  padding: 0.8rem;
+  padding: 0.55rem 0.8rem;
   background: var(--inp);
   color: var(--ink);
-  font: 0.8rem monospace;
-  overflow-wrap: anywhere;
+  font: 500 0.72rem/1.4 monospace;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
-.pix-copy { width: 100%; margin-top: 1rem; }
-.pix-copy-status { min-height: 1.5em; font-size: 0.85rem; }
-.pix-caption { margin-bottom: 0; font-size: 0.9rem; }
+
+.pix-card .submit-button {
+  margin-top: 0;
+  padding: 0.85rem 1.2rem;
+}
+
+/* Logo no espaço vazio da coluna esquerda */
+.side-logo {
+  margin-top: 2.2rem;
+}
+
+.side-logo .lg {
+  width: min(100%, 280px);
+  height: auto;
+}
+
+.pix-status {
+  min-height: 1.4em;
+  margin: 0.6rem auto 0;
+  color: var(--pr);
+  font-weight: 600;
+}
+
+/* Evita que o código PIX estique a coluna e corte o cartão */
+.project-grid > * {
+  min-width: 0;
+}
+
+.pix-card {
+  max-width: 100%;
+}
+
+.pix-code {
+  max-width: 100%;
+}

@@ -3,6 +3,7 @@ const LW = "assets/logo-dark.png";
 const root = document.documentElement;
 const themeToggle = document.getElementById("tg");
 const topLogo = document.getElementById("lg-top");
+const sideLogo = document.getElementById("lg-side");
 
 document.querySelectorAll("[data-w]").forEach((image) => {
   image.src = LW;
@@ -11,6 +12,7 @@ document.querySelectorAll("[data-w]").forEach((image) => {
 function setTheme(theme, save = false) {
   root.dataset.theme = theme;
   topLogo.src = theme === "dark" ? LW : LK;
+  sideLogo.src = theme === "dark" ? LW : LK;
   themeToggle.setAttribute("aria-pressed", theme === "dark");
 
   if (save) {
@@ -52,13 +54,25 @@ function createSocialLink(icon, label, href) {
 const houseSocial = createSocialLink(
   "instagram",
   "Instagram da Casa do Hip-Hop",
-  "#",
+  "https://www.instagram.com/casahiphoppiracicaba/",
 );
 
 const teamSocial =
-  createSocialLink("instagram", "Instagram da Discovery", "#") +
-  createSocialLink("tiktok", "TikTok da Discovery", "#") +
-  createSocialLink("youtube", "YouTube da Discovery", "#");
+  createSocialLink(
+    "instagram",
+    "Instagram da Discovery",
+    "https://www.instagram.com/discovery_nw/",
+  ) +
+  createSocialLink(
+    "tiktok",
+    "TikTok da Discovery",
+    "https://www.tiktok.com/@discovery_nw",
+  ) +
+  createSocialLink(
+    "youtube",
+    "YouTube da Discovery",
+    "https://www.youtube.com/@DiscoveryNewWays",
+  );
 
 document.getElementById("soc-top").innerHTML = houseSocial + teamSocial;
 document.getElementById("soc-ch").innerHTML = houseSocial;
@@ -176,6 +190,40 @@ if (carouselTrack && carouselWindow) {
 }
 
 
+/* Formulário de apadrinhamento */
+/* PIX copia e cola */
+/* PIX copia e cola */
+const pixCopy = document.getElementById("pix-copy");
+const pixCode = document.getElementById("pix-code");
+const pixStatus = document.getElementById("pix-status");
+
+pixCopy.addEventListener("click", async () => {
+  const code = pixCode.textContent.trim();
+
+  try {
+    await navigator.clipboard.writeText(code);
+    pixStatus.textContent = "Código PIX copiado!";
+  } catch (error) {
+    // Plano B para quando o site é aberto fora de https/localhost
+    const range = document.createRange();
+    range.selectNodeContents(pixCode);
+    const selection = getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+
+    let copied = false;
+    try {
+      copied = document.execCommand("copy");
+    } catch (e) {}
+
+    pixStatus.textContent = copied
+      ? "Código PIX copiado!"
+      : "Selecione e copie o código acima.";
+  }
+
+  setTimeout(() => (pixStatus.textContent = ""), 3000);
+});
+
 /* =========================================
    VISUALIZADOR DE FOTOS — TELA CHEIA
    ========================================= */
@@ -227,19 +275,5 @@ lightbox.addEventListener("click", (event) => {
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && lightbox.classList.contains("active")) {
     closeLightbox();
-  }
-});
-/* PIX copia e cola */
-const pixCopyButton = document.getElementById("copy-pix");
-pixCopyButton.addEventListener("click", async () => {
-  const code = document.getElementById("pix-code");
-  const status = document.getElementById("pix-copy-status");
-  try {
-    await navigator.clipboard.writeText(code.value);
-    status.textContent = "Código PIX copiado! Cole no aplicativo do seu banco.";
-  } catch {
-    code.focus();
-    code.select();
-    status.textContent = "Selecione e copie o código acima para colar no aplicativo do seu banco.";
   }
 });
